@@ -100,6 +100,8 @@
 
 <script>
   // 1. Select All Our Checkboxes
+  const boxes = document.querySelectorAll('.inbox input[type=checkbox]');
+  console.log(boxes);
 
 
   // 2. Function that checks our checkboxes
@@ -107,14 +109,11 @@
       // check to see if shiftkey was held
       // check to see if lastChecked is checked and not unchecked.
         // loop through all the checkboxes to see if it is checked.
-          // if so inbetween = !inbetween
+          // if so inbetween = !inbetween 
           // if it is inbetween then check all the boxes.
-      
-
-
-
 
   // 3. Add Event Listener to every one of the checkboxes
+  boxes.forEach(box => box.addEventListener('click', checkBoxes));
 
 
 </script>
