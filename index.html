@@ -101,17 +101,34 @@
 <script>
   // 1. Select All Our Checkboxes
   const boxes = document.querySelectorAll('.inbox input[type=checkbox]');
-  console.log(boxes);
+    // console.log(boxes);
+    let lastChecked;
 
 
   // 2. Function that checks our checkboxes
+    function checkBoxes(e){
+      console.log(e);
       // Have a standard that holds boolean for inbetween.
+      // This will be used later
+      let inBetween = false;
+        
       // check to see if shiftkey was held
       // check to see if lastChecked is checked and not unchecked.
+      if(e.shiftKey && this.checked){
         // loop through all the checkboxes to see if it is checked.
-          // if so inbetween = !inbetween 
+        boxes.forEach(box => {
+          if(box === this || box === lastChecked){
+            inBetween = !inBetween ;
+            console.log("starting to check inbetween");
+          }
           // if it is inbetween then check all the boxes.
-
+          if (inBetween){
+            box.checked = true;
+          }  
+        })   
+      }
+      lastChecked = this;
+    };
   // 3. Add Event Listener to every one of the checkboxes
   boxes.forEach(box => box.addEventListener('click', checkBoxes));
 
